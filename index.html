@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./image/permission.png" type="image/x-icon" />
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous" />
+    <!-- Fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="login" class="main bg-body-tertiary text-center vh-100 align-content-center">
+        <div class="container">
+            <div class="inputs bg-white px-5 shadow-lg py-4">
+                <h1 class="m-auto mb-5">Smart Login System</h1>
+                <div class="email form-floating mb-3 mt-5">
+                    <input type="email" class="form-control" id="emailLogin"
+                        placeholder="email">
+                    <div class=" alert alert-danger p-2 mt-2 d-none">
+                        Please enter a valid email address.
+                        Example: user@example.com
+                    </div>
+                    <label for="email">Enter Your Email</label>
+                </div>
+                <div class="password form-floating mb-3 mt-4">
+                    <input type="password" class="form-control" id="passwordLogin"
+                        placeholder="password">
+                    <div class=" alert alert-danger p-2 mt-2 d-none">
+                        Password must be at least 8 characters long and include
+                        uppercase, lowercase, number, and special character.
+                    </div>
+                    <label for="password">Enter Your Password</label>
+                </div>
+                <p id="incorrect" class="alert alert-danger p-1 d-none">Incorrect email or password</p>
+                <p id="missingInputsLogin" class="alert alert-danger p-1 d-none">All inputs is required</p>
+                <button class="btn btn-light mt-3 w-100 fs-4 blue-color btn-outline-info" id="enterPage">Login</button>
+                <h2 class="h4 mt-3">Don’t have an account?<a class="text-black" href="#" id="signUp"> Sign
+                        Up</a></h2>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="Register" class="d-none">
+        <div class="main bg-body-tertiary text-center vh-100 align-content-center">
+            <div class="container">
+                <div class="inputs bg-white px-5 shadow-lg py-4">
+                    <h1 class="m-auto mb-5">Register</h1>
+                    <div class="userName form-floating mb-3 mt-5">
+                        <input oninput="validateIndex(this)" type="text" class="form-control" id="userName"
+                            placeholder="userName">
+                        <div class=" alert alert-danger p-2 mt-2 d-none">
+                            Name should contain only letters and spaces.  
+                            Minimum 2 characters.
+                        </div>
+                        <label for="userName">Enter Your Name</label>
+                    </div>
+                    <div class="email form-floating mb-3 mt-4">
+                        <input oninput="validateIndex(this)" type="email" class="form-control" id="email"
+                            placeholder="email">
+                        <div class=" alert alert-danger p-2 mt-2 d-none">
+                            Please enter a valid email address.
+                            Example: user@example.com
+                        </div>
+                        <label for="email">Enter Your Email</label>
+                    </div>
+                    <div class="password form-floating mb-3 mt-4">
+                        <input oninput="validateIndex(this)" type="password" class="form-control" id="password"
+                            placeholder="password">
+                        <div class=" alert alert-danger p-2 mt-2 d-none">
+                            Password must be at least 8 characters long and include
+                            uppercase, lowercase, number, and special character.
+                        </div>
+                        <label for="password">Enter Your Password</label>
+                    </div>
+                    <p id="alreadyExists" class="alert alert-warning p-1 d-none">Email already exists</p>
+                    <p id="success" class="alert alert-success p-1 d-none">Success</p>
+                    <p id="missingInputs" class="alert alert-danger p-1 d-none">All inputs is required</p>
+                    <button class="btn mt-3 w-100 fs-4 blue-color btn-outline-info" id="newUser">Sign Up</button>
+                    <h2 class="h4 mt-3">You have an account?<a class="text-black" href="#" id="signIn" onclick="returnToLogin()"> Sign In</a></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Home" class="d-none">
+        <div class="vh-100 bg-info-subtle">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Home</a>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <form class="d-flex" role="search">
+                            <button class="btn blue-color btn-outline-info" type="submit" id="logOut">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="main text-center">
+                <div class="container">
+                    <div class="inputs bg-body-tertiary px-5 shadow-lg py-4">
+                        <h2 class="m-auto my-4">Welcome Maryam</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <!-- java script -->
+    <script src="JS/index.js"></script>
+</body>
+
+</html>
